@@ -12,7 +12,13 @@ def scraper():
     #print(page.content)
     soup = BeautifulSoup(page.content, 'html.parser')
     refiner_recipes = soup.find(id='tablepress-36')
-    print(refiner_recipes.prettify())
+    rows = refiner_recipes.findChildren(['th', 'tr'])
+    #print(rows)
+    for row in rows:
+        cells = row.findChildren('td')
+        print(cells)
+        #for cell in cells:
+        #    print(cell)
     return
 
 scraper()
