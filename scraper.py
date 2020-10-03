@@ -7,18 +7,22 @@ import requests
 from bs4 import BeautifulSoup
 
 def scraper():
+    recipes_output = []
+    # recipe_qty, recipe_val, intput_1, inputjasdlkfja etc
+
     url = input("> ")
     page = requests.get(url)
-    #print(page.content)
+
     soup = BeautifulSoup(page.content, 'html.parser')
     refiner_recipes = soup.find(id='tablepress-36')
     rows = refiner_recipes.findChildren(['th', 'tr'])
-    #print(rows)
     for row in rows:
         cells = row.findChildren('td')
-        print(cells)
-        #for cell in cells:
-        #    print(cell)
+        if len(cells) != 0:
+            value = cells[0].string
+            recipes_output.append(value)
+
+    print(recipes_output)
     return
 
 scraper()
