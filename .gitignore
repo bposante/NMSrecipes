@@ -1,2 +1,4 @@
 # ignore database settings file
 db_settings.py
+*.pyc
+__pycache__/
