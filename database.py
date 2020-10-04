@@ -9,5 +9,5 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("DROP DATABASE mydatabase")
+#mycursor.execute("DROP DATABASE mydatabase")
 mycursor.execute("CREATE DATABASE mydatabase")

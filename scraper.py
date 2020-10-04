@@ -1,7 +1,7 @@
 # Author: Bailey Posante & Katie Long
 # Date: 10/02/2020
 # Description: a program to scrape the web for No Man's Sky recipes, ingredients, and prices. Outputs information as
-# text file for now.
+# nothing for now.
 
 import requests
 from bs4 import BeautifulSoup
@@ -47,6 +47,7 @@ def scraper(url):
             input_2_qty.append(cells[6].string)
             input_3.append(cells[7].string)
             input_3_qty.append(cells[8].string)
-    return
+    return recipe_output, recipe_qty, recipe_val, input_1, input_1_qty, input_2, input_2_qty, input_3, input_3_qty
 
-scraper("https://www.xainesworld.com/all-refiner-recipes-in-no-mans-sky-origins-3-02/")
+recipes = scraper("https://www.xainesworld.com/all-refiner-recipes-in-no-mans-sky-origins-3-02/")
+print(recipes)
